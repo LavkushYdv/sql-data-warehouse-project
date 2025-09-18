@@ -1,3 +1,9 @@
+/*
+The Bronze Layer is the raw data ingestion stage in a data warehouse. It loads unprocessed data from
+CRM and ERP CSV files into staging tables using BULK INSERT. Each table is truncated before loading, 
+and load durations are logged. 
+The procedure includes error handling and prints progress for transparency.
+*/
 --exec bronze.load_bronze;
 Create or alter procedure bronze.load_bronze as
 begin

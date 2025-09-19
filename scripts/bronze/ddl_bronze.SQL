@@ -21,9 +21,9 @@ cst_create_date date
 
 )
 go
-IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
-DROP TABLE bronze.crm_prd_info;
-create table bronze.crm_prd_info(
+IF OBJECT_ID('bronze.crm_prod_info', 'U') IS NOT NULL
+DROP TABLE bronze.crm_prod_info;
+create table bronze.crm_prod_info(
 prd_id int,
 prd_key nvarchar(50),
 prd_nm nvarchar(50),

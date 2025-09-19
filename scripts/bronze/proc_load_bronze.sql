@@ -4,6 +4,7 @@ CRM and ERP CSV files into staging tables using BULK INSERT. Each table is trunc
 and load durations are logged. 
 The procedure includes error handling and prints progress for transparency.
 */
+
 --exec bronze.load_bronze;
 Create or alter procedure bronze.load_bronze as
 begin
@@ -51,15 +52,15 @@ print '>> Load duration: ' + cast(datediff ( second , @start_time, @end_time) as
 set @start_time =GETDATE()
 
 Print '-------------------------------------------------';
-Print 'Truncating CRM Table: crm_prd_info';
+Print 'Truncating CRM Table: crm_prod_info';
 
 Print '-------------------------------------------------';
-truncate table bronze.crm_prd_info
+truncate table bronze.crm_prod_info
 Print '-------------------------------------------------';
-Print 'Inserting data into  CRM Table : crm_prd_info';
+Print 'Inserting data into  CRM Table : crm_prod_info';
 
 Print '-------------------------------------------------';
-Bulk insert bronze.crm_prd_info
+Bulk insert bronze.crm_prod_info
 from 'C:\DataAnalysisProject\sql-data-warehouse-project\datasets\source_crm\prd_info.csv'
 with(
 Firstrow =2,
